@@ -13,7 +13,7 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime)
     updated_at = db.Column(db.DateTime)
 
-    watchlists = db.relationship('Watchlist', back_populates='watchlists')
+    watchlists = db.relationship('Watchlist', back_populates='users')
 
     @property
     def password(self):

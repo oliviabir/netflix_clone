@@ -9,8 +9,8 @@ class Watchlist(db.Model):
     created_at = db.Column(db.DateTime)
     updated_at = db.Column(db.DateTime)
 
-    users = db.relationship('User', back_populates='users')
-    movies = db.relationship('Movie', back_populates='movies')
+    users = db.relationship('User', back_populates='watchlists')
+    movies = db.relationship('Movie', back_populates='watchlists')
 
     def to_dict(self):
         return {
