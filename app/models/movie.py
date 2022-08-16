@@ -22,6 +22,7 @@ class Movie(db.Model):
             'id': self.id,
             'name': self.name,
             'description': self.description,
+            'category_id': self.category_id,
             'img_one': self.img_one,
             'img_two': self.img_two,
             'img_three': self.img_three,

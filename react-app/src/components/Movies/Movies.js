@@ -15,8 +15,6 @@ const Movies = () => {
         return Object.values(state.movies)
     })
 
-    console.log('MOVIES: ', movies)
-
     return (
         <div className='movies-page'>
             <div className='movie-container'>

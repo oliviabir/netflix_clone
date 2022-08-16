@@ -10,6 +10,7 @@ import User from './components/User';
 import Movies from './components/Movies/Movies'
 import SingleMovie from './components/SingleMovie/SingleMovie';
 import Watchlist from './components/Watchlist/Watchlist';
+import Categories from './components/Categories/Categories';
 import { authenticate } from './store/session';
 import { viewMovies } from "./store/movies"
 import { viewWatchlist } from "./store/watchlist"
@@ -49,6 +50,27 @@ function App() {
         </Route>
         <Route path='/movies' exact={true}>
           <Movies />
+        </Route>
+        <Route path='/movies/drama' exact={true}>
+          <Categories category={1} />
+        </Route>
+        <Route path='/movies/comedy' exact={true}>
+          <Categories category={2} />
+        </Route>
+        <Route path='/movies/horror' exact={true}>
+          <Categories category={3} />
+        </Route>
+        <Route path='/movies/action' exact={true}>
+          <Categories category={4} />
+        </Route>
+        <Route path='/movies/documentary' exact={true}>
+          <Categories category={5} />
+        </Route>
+        <Route path='/movies/anime' exact={true}>
+          <Categories category={6} />
+        </Route>
+        <Route path='/movies/classic' exact={true}>
+          <Categories category={7} />
         </Route>
         <Route path='/watchlist' exact={true}>
           <Watchlist />
