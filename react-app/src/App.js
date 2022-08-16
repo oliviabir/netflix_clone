@@ -8,7 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import Movies from './components/Movies/Movies'
-import SingleMovie from './components/SingleMovie';
+import SingleMovie from './components/SingleMovie/SingleMovie';
 import { authenticate } from './store/session';
 
 function App() {

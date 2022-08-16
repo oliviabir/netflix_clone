@@ -1,0 +1,19 @@
+.single-movie-name {
+    font-size: 36px;
+    font-weight: 600;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.single-movie-img {
+    height: 250px;
+    width: 450px;
+    margin: 2%;
+}
+
+.single-movie-description {
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
