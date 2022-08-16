@@ -9,18 +9,29 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import Movies from './components/Movies/Movies'
 import SingleMovie from './components/SingleMovie/SingleMovie';
+import Watchlist from './components/Watchlist/Watchlist';
 import { authenticate } from './store/session';
+import { viewMovies } from "./store/movies"
+import { viewWatchlist } from "./store/watchlist"
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(viewMovies())
+  }, [dispatch])
+
+  useEffect(() => {
+    dispatch(viewWatchlist())
+  }, [dispatch])
 
   if (!loaded) {
     return null;
@@ -39,11 +50,14 @@ function App() {
         <Route path='/movies' exact={true}>
           <Movies />
         </Route>
+        <Route path='/watchlist' exact={true}>
+          <Watchlist />
+        </Route>
         <Route path='/movies/:id' exact={true}>
           <SingleMovie />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
