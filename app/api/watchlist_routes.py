@@ -36,3 +36,10 @@ def create_entry():
         db.session.commit()
         return new_entry.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@watchlist_routes.route('/<int:id>', methods=['DELETE'])
+def delete_entry(id):
+    entry = Watchlist.query.get(id)
+    db.session.delete(entry)
+    db.session.commit()
+    return "Entry was successfully deleted"

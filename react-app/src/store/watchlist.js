@@ -1,5 +1,6 @@
 const ADD_TO_WATCHLIST = 'watchlist/ADD_TO_WATCHLIST'
 const VIEW_WATCHLIST = 'watchlist/VIEW_WATCHLIST'
+const DELETE_ENTRY = 'watchlist/DELETE_ENTRY'
 
 const addMovie = (movie) => ({
     type: ADD_TO_WATCHLIST,
@@ -9,6 +10,11 @@ const addMovie = (movie) => ({
 const view = (watchlists) => ({
     type: VIEW_WATCHLIST,
     watchlists
+})
+
+const remove = (entry) => ({
+    type: DELETE_ENTRY,
+    entry
 })
 
 export const addToWatchlist = (payload) => async (dispatch) => {
@@ -36,6 +42,17 @@ export const viewWatchlist = () => async (dispatch) => {
     }
 }
 
+export const removeFromWatchlist = (id) => async (dispatch) => {
+    const response = await fetch(`/api//watchlist/${id}`, {
+        method: 'DELETE'
+    })
+
+    if (response.ok) {
+        dispatch(remove(id))
+        return response
+    }
+}
+
 const watchlistReducer = (state = {}, action) => {
     switch (action.type) {
         case ADD_TO_WATCHLIST:
@@ -47,6 +64,10 @@ const watchlistReducer = (state = {}, action) => {
                 normalizedWatchlists[watchlist.id] = watchlist
             })
             return {...normalizedWatchlists}
+        case DELETE_ENTRY:
+            const deleteState = {...state}
+            delete deleteState[action.entry]
+            return deleteState
         default:
             return state
     }
