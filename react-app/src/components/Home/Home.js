@@ -2,9 +2,9 @@ import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { viewMovies } from "../../store/movies"
-import './Movies.css'
+import './Home.css'
 
-const Movies = () => {
+const Home = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -16,16 +16,12 @@ const Movies = () => {
     })
 
     return (
-        <div className='movies-page'>
-            <div className='movie-container'>
-                {movies.map((movie) => (
-                    <Link to={`/movies/${movie.id}`} key={movie.id}>
-                        <img src={movie.img_one} className='movie-img' />
-                    </Link>
-                ))}
-            </div>
+        <div className='wrapper'>
+            <section id='section-1'>
+                <Link to='#section-3'></Link>
+            </section>
         </div>
     )
 }
 
-export default Movies
+export default Home
